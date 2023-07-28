@@ -12,6 +12,8 @@
   @apply cursor-pointer;
 }
 
+
+
 @layer utilities {
   .font-archivo {
     font-family: "Archivo", sans-serif;

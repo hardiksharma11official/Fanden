@@ -4,6 +4,7 @@ import { BsSearch } from 'react-icons/bs';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { RxCross2 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,24 +26,26 @@ const Navbar = () => {
     };
     return (
         <nav className='flex justify-between items-center p-2'>
-            <motion.div 
+            <motion.div
 
-            initial={{ opacity: 0, x:-100 }}
-            animate={{ opacity: 1, x:0 }}
-            transition={{ duration: 1 }}
-            className='flex justify-center items-center'>
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className='flex justify-center items-center'>
                 <img src="/fanden.jpeg" alt="logo" className='h-20 rounded-full' />
                 <p className='px-3 text-gray-700 text-xl'>Experience sport like never before</p>
             </motion.div>
 
             {/* Desktop Navbar */}
             <motion.div
-            initial={{ opacity: 0, x:100 }}
-            animate={{ opacity: 1, x:0 }}
-            transition={{ duration: 1 }}
-            className='md:flex justify-center items-center hidden '>
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className='md:flex justify-center items-center hidden '>
                 <div className='navbar-items relative group'>
-                    Home
+                    <Link to="/">
+                        Home
+                    </Link>
                     <div className="absolute left-0 bottom-0 w-full h-0.5 bg-[#5c9735] transform scale-x-0 origin-left transition-transform transition-delay-200 group-hover:scale-x-100"></div>
                 </div>
                 <div className='navbar-items group relative'>
@@ -59,7 +62,11 @@ const Navbar = () => {
                 </div>
                 <div className='navbar-items'><BsSearch /></div>
                 <div className='navbar-items'>Rs. 0.00</div>
-                <div className='navbar-items'><BsFillPersonFill /></div>
+                <div className='navbar-items'>
+                    <Link to='login'>
+                        <BsFillPersonFill />
+                    </Link>
+                </div>
             </motion.div>
 
             {/* Mobile Navbar */}
